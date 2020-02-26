@@ -2,8 +2,6 @@ const express = require('express')
 
 const app = express();
 
-app.use(express.json());
-
 const database = {
     users: [
         {
@@ -34,8 +32,9 @@ app.post('/signin', (req, res) => {
         req.body.password === database.users[0].password) {
           res.json('success')  
         } else {
-            res.status(400).json('error logging in')
+            res.status(400)
         }
+    res.json('signin')
 })
 
 

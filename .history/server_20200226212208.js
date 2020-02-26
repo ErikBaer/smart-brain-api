@@ -2,8 +2,6 @@ const express = require('express')
 
 const app = express();
 
-app.use(express.json());
-
 const database = {
     users: [
         {
@@ -31,11 +29,8 @@ app.get('/', (re, res) => {
 
 app.post('/signin', (req, res) => {
     if (req.body.email === database.users[0].email &&
-        req.body.password === database.users[0].password) {
-          res.json('success')  
-        } else {
-            res.status(400).json('error logging in')
-        }
+        req.body.password)
+    res.json('signin')
 })
 
 
