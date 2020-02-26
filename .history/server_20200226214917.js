@@ -55,24 +55,12 @@ app.get('/profile/:id', (req, res) => {
     const {id} = req.params;
     database.users.forEach(user => {
         if (user.id === id) {
-            return res.json(user)
+            res.json(user)
             } 
         })
-    res.status(404).send('no such user')
-})
-  
-app.post('/image', (req, res) => {
-    const {id} = body.id;
-    database.users.forEach(user => {
-        if (user.id === id) {
-            user.entries++;
-            return res.json(user)
-            } 
-        })
-    res.status(404).send('Who are you, anyway?')
-})
-
-   
+    res.status(404).json('no such user')
+}
+        
 
 app.listen(3000, () => {
     console.log('App is running on port 3000')

@@ -71,7 +71,7 @@ app.post('/image', (req, res) => {
         })
     res.status(404).send('Who are you, anyway?')
 })
-
+}
    
 
 app.listen(3000, () => {
