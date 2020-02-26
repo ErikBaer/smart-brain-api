@@ -62,7 +62,7 @@ app.get('/profile/:id', (req, res) => {
 })
   
 app.post('/image', (req, res) => {
-    const {id} = req.body;
+    const {id} = body.id;
     database.users.forEach(user => {
         if (user.id === id) {
             user.entries++;
