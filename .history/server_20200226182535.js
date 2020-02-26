@@ -2,25 +2,12 @@ const express = require('express')
 
 const app = express();
 
-const database = {
-    users: [
-        {
-            id:'123',
-            name:'John',
-            email: 'john@gmail.com',
-            password: 'cookies',
-            entries: 0,
-            joined: new Date()
-        }
-    ]
-}
-
 app.get('/', (re, res) => {
     res.send('This is working')
 })
 
-app.post('/signin', (req, res) => {
-    res.json('signin')
+app.post('/signin', (req, res) {
+    res.send('signin')
 })
 
 
