@@ -1,9 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt-nodejs')
 const cors = require('cors')
-const knex = require('knex')
-
-knex ({
+const knex = require('knex')({
     client: 'pg',
     connection: {
       host : '127.0.0.1',

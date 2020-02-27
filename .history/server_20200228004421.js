@@ -1,10 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt-nodejs')
 const cors = require('cors')
-const knex = require('knex')
-
-knex ({
-    client: 'pg',
+const knex = require('knex')({
+    client: 'mysql',
     connection: {
       host : '127.0.0.1',
       user : 'your_database_user',
