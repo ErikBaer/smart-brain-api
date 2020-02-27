@@ -29,7 +29,7 @@ const database = {
     ]
 }
 
-app.get('/', (req, res) => {
+app.get('/', (re, res) => {
     res.send(database.users)
 })
 

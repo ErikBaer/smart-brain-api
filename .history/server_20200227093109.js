@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors())
+app.use(corse())
 
 const database = {
     users: [
@@ -29,7 +29,7 @@ const database = {
     ]
 }
 
-app.get('/', (req, res) => {
+app.get('/', (re, res) => {
     res.send(database.users)
 })
 
