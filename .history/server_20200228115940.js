@@ -98,7 +98,7 @@ app.put('/image', (req, res) => {
         ?res.json(entries[0])
         :res.status(400).json('Unable to get count')
     })
-    .catch(err => res.status(400).json('Unable to connect'))
+    .catch(err => res.status(400).json('Unable to get count'))
 })
 
    

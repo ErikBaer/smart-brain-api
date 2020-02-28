@@ -90,15 +90,18 @@ app.get('/profile/:id', (req, res) => {
 app.put('/image', (req, res) => {
     const {id} = req.body;
     db('users')
-    .where('id', '=', id)
+    .where('id', '=', id )
     .increment('entries', 1)
-    .returning('entries')
-    .then (entries  => {
-        (entries.length)
-        ?res.json(entries[0])
-        :res.status(400).json('Unable to get count')
+    .returning(entries => {
+        console.log(entries)
     })
-    .catch(err => res.status(400).json('Unable to connect'))
+    // .update({
+    //     entries: 'entries' +1
+    // })
+    // .then (res.json('entries'))
+
+
+    // res.status(404).send('Who are you, anyway?')
 })
 
    

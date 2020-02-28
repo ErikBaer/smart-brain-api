@@ -89,7 +89,7 @@ app.get('/profile/:id', (req, res) => {
   
 app.put('/image', (req, res) => {
     const {id} = req.body;
-    db('users')
+    db('')
     .where('id', '=', id)
     .increment('entries', 1)
     .returning('entries')
@@ -98,7 +98,7 @@ app.put('/image', (req, res) => {
         ?res.json(entries[0])
         :res.status(400).json('Unable to get count')
     })
-    .catch(err => res.status(400).json('Unable to connect'))
+    .catch(err => res.status(400).json('Unable to get count'))
 })
 
    

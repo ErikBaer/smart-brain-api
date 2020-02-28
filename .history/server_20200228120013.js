@@ -89,7 +89,7 @@ app.get('/profile/:id', (req, res) => {
   
 app.put('/image', (req, res) => {
     const {id} = req.body;
-    db('users')
+    db('')
     .where('id', '=', id)
     .increment('entries', 1)
     .returning('entries')
