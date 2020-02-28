@@ -71,8 +71,7 @@ app.post('/register', (req,res) => {
         name: name,
         joined: new Date()
     })
-    .then (user => res.json(user[0]))
-    .catch(err => res.status(400).json('Sorry, unable to register'))
+    .then (response => res.json(response))
     
 })
 
@@ -80,7 +79,7 @@ app.get('/profile/:id', (req, res) => {
     const {id} = req.params;
     database.users.forEach(user => {
         if (user.id === id) {
-            return res.json(user)
+            return res.json(user[0])
             } 
         })
     res.status(404).send('no such user')

@@ -13,9 +13,9 @@ const db = knex ({
     }
   });
 
-//   db.select('*').from('users').then(data => {
-//       console.log(data)
-//   })
+  db.select('*').from('users').then(data => {
+      console.log(data)
+  })
 
 
 const app = express();
@@ -71,8 +71,7 @@ app.post('/register', (req,res) => {
         name: name,
         joined: new Date()
     })
-    .then (user => res.json(user[0]))
-    .catch(err => res.status(400).json('Sorry, unable to register'))
+    .then (response => res.json(response))
     
 })
 
