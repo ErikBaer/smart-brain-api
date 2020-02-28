@@ -64,13 +64,7 @@ app.post('/signin', (req, res) => {
 
 app.post('/register', (req,res) => {
     const {email, name, password} = req.body
-    db('users').insert({
-        email: email,
-        name: name,
-        joined: new Date()
-    })
-    .then (console.log)
-
+    db('users'.insert)
     res.json(database.users[database.users.length-1])
 })
 

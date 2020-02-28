@@ -67,10 +67,8 @@ app.post('/register', (req,res) => {
     db('users').insert({
         email: email,
         name: name,
-        joined: new Date()
+        password: password
     })
-    .then (console.log)
-
     res.json(database.users[database.users.length-1])
 })
 

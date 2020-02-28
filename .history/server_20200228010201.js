@@ -69,7 +69,6 @@ app.post('/register', (req,res) => {
         name: name,
         joined: new Date()
     })
-    .then (console.log)
 
     res.json(database.users[database.users.length-1])
 })

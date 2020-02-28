@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt-nodejs')
 const cors = require('cors')
 const knex = require('knex')
 
-const db = knex ({
+knex ({
     client: 'pg',
     connection: {
       host : '127.0.0.1',
@@ -12,11 +12,6 @@ const db = knex ({
       database : 'smart-brain'
     }
   });
-
-  db.select('*').from('users').then(data => {
-      console.log(data)
-  })
-
 
 const app = express();
 
@@ -64,13 +59,14 @@ app.post('/signin', (req, res) => {
 
 app.post('/register', (req,res) => {
     const {email, name, password} = req.body
-    db('users').insert({
-        email: email,
-        name: name,
-        joined: new Date()
+    database.users.push( {
+            id:'125',
+            name:name,
+            email: email,
+            password: password,
+            entries: 0,
+            joined: new Date()
     })
-    .then (console.log)
-
     res.json(database.users[database.users.length-1])
 })
 
