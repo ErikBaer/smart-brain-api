@@ -50,11 +50,13 @@ app.get('/', (req, res) => {
 })
 
 app.post('/signin', (req, res) => {
-  
+    // bcrypt.compare("bacon", hash, function(err, res) {
+    //     //res === true
+    // })
     db.select('email', 'hash').from('login')
     .where ('email', '=', req.body.email)
     .then(data => {
-       const isValid = bcrypt.compareSync(req.body.password, data[0].hash);
+       const isValid = bcrypt.compareSync(req.body.password, data[0].hash)
        if (isValid) {
            db.select('*').from('users')
             .where('email', '=', req.body.email)
@@ -62,13 +64,9 @@ app.post('/signin', (req, res) => {
             res.json(user[0])
             })
             .catch(err => res.status(400).json('That did not work'))
-        } else {
-            res.status(400).json('wrong credentials')
-        } 
-        
+        }
     })
-
-    .catch(err => res.status(400).json('wrong credentials'))
+    
 })
 
 app.post('/register', (req,res) => {
