@@ -85,6 +85,12 @@ app.get('/profile/:id', (req, res) => {
         :res.status(400).json('Sorry, could not connect to Database')
     })
     .catch(err => res.status(400).json('Sorry, there was an error'))
+    // database.users.forEach(user => {
+    //     if (user.id === id) {
+    //         return res.json(user)
+    //         } 
+    //     })
+    // res.status(200).send('no such user')
 })
   
 app.put('/image', (req, res) => {

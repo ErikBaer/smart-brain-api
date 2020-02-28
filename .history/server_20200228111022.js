@@ -78,13 +78,20 @@ app.post('/register', (req,res) => {
 
 app.get('/profile/:id', (req, res) => {
     const {id} = req.params;
-    db.select('*').from('users').where({id})
-    .then (user => {
-        (user.length)
-        ?res.json(user[0])
-        :res.status(400).json('Sorry, could not connect to Database')
+    db.select('*').from('users').where({
+        id: id
     })
-    .catch(err => res.status(400).json('Sorry, there was an error'))
+    .then (user => {
+        console.log(user[0]);
+    })
+    .then (user => res.json(user[0]))
+    
+    // database.users.forEach(user => {
+    //     if (user.id === id) {
+    //         return res.json(user)
+    //         } 
+    //     })
+    // res.status(200).send('no such user')
 })
   
 app.put('/image', (req, res) => {
