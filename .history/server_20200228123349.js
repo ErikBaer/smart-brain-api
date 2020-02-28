@@ -79,7 +79,7 @@ app.post('/register', (req,res) => {
             return trx('users') //different syntax as above, same result(?!)
             .returning('*')
             .insert({
-                email: loginEmail[0],
+                email: loginEmail,
                 name: name,
                 joined: new Date()
             })

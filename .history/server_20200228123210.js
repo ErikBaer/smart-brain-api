@@ -79,7 +79,7 @@ app.post('/register', (req,res) => {
             return trx('users') //different syntax as above, same result(?!)
             .returning('*')
             .insert({
-                email: loginEmail[0],
+                email: loginEmail,
                 name: name,
                 joined: new Date()
             })
@@ -87,8 +87,6 @@ app.post('/register', (req,res) => {
                 res.json(user[0]);
             })
         })
-        .then(trx.commit)
-        .catch(trx.rollback)
     })
     .catch(err => res.status(400).json('Sorry, unable to register'))   
 })
