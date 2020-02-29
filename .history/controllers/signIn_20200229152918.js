@@ -7,12 +7,12 @@ const handleSignIn =  (db, bcrypt) => (req, res) => {
     }
 
     db.select('email', 'hash').from('login')
-    .where ('email', '=', email)
+    .where ('email', '=', req.body.email)
     .then(data => {
-       const isValid = bcrypt.compareSync(password, data[0].hash);
+       const isValid = bcrypt.compareSync(req.body.password, data[0].hash);
        if (isValid) {
            db.select('*').from('users')
-            .where('email', '=', email)
+            .where('email', '=', req.body.email)
             .then (user => {
             res.json(user[0])
             })
