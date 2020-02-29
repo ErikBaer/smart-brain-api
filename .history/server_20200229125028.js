@@ -2,8 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt-nodejs')
 const cors = require('cors')
 const knex = require('knex');
-const register = require('./controllers/register');
-const signIn = require('./controllers/signIn')
+const register = require('./controllers/register')
 
 const db = knex ({
     client: 'pg',
@@ -51,7 +50,7 @@ app.get('/', (req, res) => {
     res.send(database.users)
 })
 
-app.post('/signin', (req, res) => signIn.handleSignIn(req, res, db, bcrypt))
+app.post('/signin', ((req, res => signIn.handleSignIn(req, res, db, bcrypt))))
 
 app.post('/register', (req, res) => register.handleRegister(req, res, db, bcrypt))
 
