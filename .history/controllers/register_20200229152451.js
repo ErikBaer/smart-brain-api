@@ -1,7 +1,7 @@
 const handleRegister = (req,res, db, bcrypt) => {
     const {email, name, password} = req.body;
     if (!email || !name || !password) {
-        return res.status(400).json('empty request')
+        return res.status.json('empty request')
     }
     const hash = bcrypt.hashSync(password);
 
