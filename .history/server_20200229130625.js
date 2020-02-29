@@ -4,7 +4,7 @@ const cors = require('cors')
 const knex = require('knex');
 const register = require('./controllers/register');
 const signIn = require('./controllers/signIn');
-const profile = require('./controllers/profile')
+const profile = reuqire('./controllers/profile')
 
 const db = knex ({
     client: 'pg',
