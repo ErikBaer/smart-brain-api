@@ -1,5 +1,3 @@
-// Advanced Syntax, req,res gets called from function with ressources 
-
 const handleSignIn =  (db, bcrypt) => (req, res) => {
   
     db.select('email', 'hash').from('login')

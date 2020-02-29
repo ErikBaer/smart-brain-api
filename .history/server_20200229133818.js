@@ -51,12 +51,9 @@ const database = {
 
 app.get('/', (req, res) => {res.send(database.users)})
 
-app.post('/register', (req, res) => register.handleRegister(req, res, db, bcrypt))
-
-// Advanced Syntax below, exactly same result as above.
-// (req,res) gets passed automatically.
-
 app.post('/signin', signIn.handleSignIn(db, bcrypt))
+
+app.post('/register', (req, res) => register.handleRegister(req, res, db, bcrypt))
 
 app.get('/profile/:id', (req, res) => profile.handleGetProfile(req, res, db))
   
