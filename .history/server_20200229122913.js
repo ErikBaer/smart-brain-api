@@ -1,8 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt-nodejs')
 const cors = require('cors')
-const knex = require('knex');
-const register = require('./controllers/register')
+const knex = require('knex')
 
 const db = knex ({
     client: 'pg',
@@ -72,7 +71,7 @@ app.post('/signin', (req, res) => {
     .catch(err => res.status(400).json('wrong credentials'))
 })
 
-app.post('/register', (req, res) => register.handleRegister(req, res, db, bcrypt))
+app.post('/register', register.handleRegister)
 
 app.get('/profile/:id', (req, res) => {
     const {id} = req.params;
