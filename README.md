@@ -6,9 +6,10 @@ Front-End: https://github.com/ErikBaer/smart-brain-frontend
 
 ## Demo
 
-You can find a working Demo under: https://sleepy-retreat-45021.herokuapp.com/
+You can find a working Demo under: https://smart-brain-baerdata.herokuapp.com/
 
-Just register under a generic username, upload an image and feel the magic.
+Just register under a generic username or sign in as admin / admin, 
+upload an image and feel the magic.
 
 ## Local Test
 In the project directory, you can run:
